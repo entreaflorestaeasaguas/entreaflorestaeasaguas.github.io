@@ -20,508 +20,513 @@ html {
 
 body {
     font-family: Georgia, "Times New Roman", serif;
-    background: #10291f;
-    color: #f5ead5;
-    line-height: 1.7;
+    background: #0b281d;
+    color: #f3e5c8;
 }
+
 
 /* =========================
    CABEÇALHO
 ========================= */
 
 header {
+    height: 72px;
+    width: 100%;
+
+    background: #081f17;
+
+    border-bottom: 1px solid #806b35;
+
+    display: flex;
+    align-items: center;
+
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 1000;
 
-    background: rgba(10, 30, 22, 0.88);
-    backdrop-filter: blur(8px);
-
-    border-bottom: 1px solid rgba(211, 174, 91, 0.35);
+    z-index: 100;
 }
 
 .navbar {
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1400px;
+
     margin: auto;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 0 35px;
 
-    padding: 18px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
-    color: #d9b76b;
-    font-size: 1.25rem;
+    color: #d8b66a;
+
+    font-size: 25px;
+
     letter-spacing: 2px;
+
+    font-weight: bold;
+
     text-decoration: none;
 }
 
 .menu {
     display: flex;
-    gap: 25px;
+
+    gap: 32px;
+
     list-style: none;
 }
 
 .menu a {
-    color: #f4ead7;
+    color: #eee1c9;
+
     text-decoration: none;
-    font-size: 0.95rem;
+
+    font-weight: bold;
+
+    font-size: 17px;
+
     transition: 0.3s;
 }
 
 .menu a:hover {
-    color: #d9b76b;
+    color: #d8b66a;
 }
+
 
 /* =========================
    HERO
 ========================= */
 
 .hero {
+
     min-height: 100vh;
+
+    padding-top: 72px;
 
     background-image:
         linear-gradient(
-            rgba(8, 25, 18, 0.25),
-            rgba(8, 25, 18, 0.72)
+            rgba(4, 24, 16, 0.30),
+            rgba(4, 24, 16, 0.55)
         ),
         url("./heroi.png");
 
     background-size: cover;
+
     background-position: center;
+
     background-repeat: no-repeat;
 
     display: flex;
-    align-items: flex-end;
+
+    align-items: center;
+
     justify-content: center;
 
     text-align: center;
-
-    padding: 140px 20px 90px;
 }
 
-.hero-content {
-    max-width: 900px;
+.hero-box {
 
-    background: rgba(8, 27, 19, 0.55);
-    padding: 35px 45px;
+    max-width: 1000px;
 
-    border: 1px solid rgba(218, 181, 99, 0.35);
-    border-radius: 4px;
+    padding: 55px 70px;
 
-    backdrop-filter: blur(3px);
+    background: rgba(4, 25, 17, 0.72);
+
+    border: 1px solid rgba(210, 176, 92, 0.55);
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.35);
 }
 
 .hero h1 {
-    font-size: clamp(2.4rem, 6vw, 5rem);
-    color: #f6e8ca;
 
-    letter-spacing: 3px;
-    margin-bottom: 15px;
+    font-size: clamp(45px, 6vw, 82px);
 
-    text-shadow: 0 3px 15px #000;
+    line-height: 1.1;
+
+    color: #f5e5c2;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 4px 12px rgba(0,0,0,0.8);
 }
 
 .hero p {
-    font-size: 1.2rem;
-    color: #eadbbd;
+
+    font-size: 21px;
+
+    line-height: 1.7;
+
+    color: #eee0c4;
 }
+
 
 /* =========================
    INTRODUÇÃO
 ========================= */
 
 .intro {
-    max-width: 900px;
-    margin: auto;
+
+    padding: 75px 25px 50px;
 
     text-align: center;
-
-    padding: 90px 25px 60px;
-}
-
-.intro h2 {
-    color: #d9b76b;
-    font-size: 2rem;
-    margin-bottom: 20px;
 }
 
 .intro p {
-    color: #e7dbc7;
-    font-size: 1.08rem;
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    font-size: 21px;
+
+    line-height: 1.7;
+
+    color: #eee0c9;
 }
+
 
 /* =========================
    PORTINHAS
 ========================= */
 
 .doors-section {
-    max-width: 1250px;
+
+    max-width: 1450px;
+
     margin: auto;
 
-    padding: 30px 25px 100px;
+    padding: 45px 35px 110px;
 }
 
 .doors {
+
     display: grid;
 
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns:
+        repeat(5, 1fr);
 
-    gap: 18px;
+    gap: 22px;
+
+    align-items: stretch;
 }
 
-/* Cada portinha */
+
+/* PORTA */
 
 .door {
+
     position: relative;
 
-    height: 420px;
+    height: 520px;
 
     overflow: hidden;
 
-    border-radius: 150px 150px 12px 12px;
+    display: flex;
 
-    border: 2px solid rgba(211, 174, 91, 0.55);
+    flex-direction: column;
 
-    background: #183a2b;
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,0.35),
-        inset 0 0 30px rgba(0,0,0,0.3);
+    justify-content: flex-end;
 
     text-decoration: none;
 
+    border-radius:
+        150px 150px 18px 18px;
+
+    border:
+        2px solid #9a7d35;
+
+    background: #102f23;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.35);
+
     transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .door:hover {
-    transform: translateY(-12px);
+
+    transform: translateY(-10px);
 
     box-shadow:
-        0 22px 45px rgba(0,0,0,0.5),
-        0 0 25px rgba(211,174,91,0.18);
+        0 25px 45px rgba(0,0,0,0.55),
+        0 0 25px rgba(210,176,92,0.18);
 }
 
+
+/* =========================
+   IMAGEM DENTRO DA PORTA
+========================= */
+
 .door-image {
+
     position: absolute;
-    inset: 0;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
 
     background-size: cover;
+
     background-position: center;
 
-    transition: transform 0.6s ease;
+    background-repeat: no-repeat;
+
+    transition:
+        transform 0.5s ease;
 }
 
 .door:hover .door-image {
+
     transform: scale(1.06);
 }
 
-/* Imagens das portinhas */
 
-.door-history .door-image {
-    background-image: url("./historia.png");
+/* IMAGENS */
+
+.history-image {
+
+    background-image:
+        url("./historia.png");
 }
 
-.door-characters .door-image {
-    background-image: url("./personagens.png");
+.characters-image {
+
+    background-image:
+        url("./personagens.png");
 }
 
-.door-world .door-image {
-    background-image: url("./mundo.png");
+.world-image {
+
+    background-image:
+        url("./mundo.png");
 }
 
-.door-read .door-image {
-    background-image: url("./leia.png");
+.read-image {
+
+    background-image:
+        url("./leia.png");
 }
 
-.door-support .door-image {
-    background-image: url("./apoie.png");
+.support-image {
+
+    background-image:
+        url("./apoie.png");
 }
 
-/* Escurecimento */
 
-.door::after {
-    content: "";
+/* =========================
+   SOMBRA SOBRE A IMAGEM
+========================= */
+
+.door-overlay {
 
     position: absolute;
+
     inset: 0;
 
     background:
         linear-gradient(
-            to top,
-            rgba(5,18,12,0.92),
-            rgba(5,18,12,0.05) 70%
+            to bottom,
+            rgba(0,0,0,0.05) 35%,
+            rgba(3,18,12,0.25) 50%,
+            rgba(3,18,12,0.95) 100%
         );
-
-    z-index: 1;
 }
 
-/* Texto */
-
-.door-content {
-    position: absolute;
-
-    left: 15px;
-    right: 15px;
-    bottom: 25px;
-
-    z-index: 2;
-
-    text-align: center;
-}
-
-.door-content h3 {
-    color: #f4e4bd;
-
-    font-size: 1.4rem;
-
-    letter-spacing: 1px;
-
-    text-shadow: 0 2px 8px #000;
-
-    margin-bottom: 5px;
-}
-
-.door-content span {
-    color: #d8c7a4;
-
-    font-size: 0.85rem;
-
-    opacity: 0.9;
-}
 
 /* =========================
-   FRASE
+   TEXTO DAS PORTAS
+========================= */
+
+.door-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    padding: 25px 15px 28px;
+}
+
+.door-content h2 {
+
+    color: #f5e5c2;
+
+    font-size: 27px;
+
+    margin-bottom: 7px;
+
+    text-shadow:
+        0 3px 8px #000;
+}
+
+.door-content p {
+
+    color: #eadcc0;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+    text-shadow:
+        0 2px 6px #000;
+}
+
+
+/* =========================
+   FRASE FINAL
 ========================= */
 
 .quote {
-    max-width: 950px;
-    margin: auto;
-
-    padding: 80px 30px;
 
     text-align: center;
+
+    padding: 25px 25px 100px;
 }
 
 .quote p {
-    font-size: clamp(1.4rem, 3vw, 2.1rem);
-
-    color: #e8d6ae;
-
-    font-style: italic;
-
-    line-height: 1.5;
-}
-
-.quote span {
-    display: block;
-
-    margin-top: 20px;
-
-    color: #bfa878;
-
-    font-size: 0.9rem;
-
-    font-style: normal;
-}
-
-/* =========================
-   SEÇÕES
-========================= */
-
-.content-section {
-    max-width: 1100px;
-    margin: auto;
-
-    padding: 90px 25px;
-}
-
-.content-section h2 {
-    text-align: center;
-
-    color: #d9b76b;
-
-    font-size: 2.3rem;
-
-    margin-bottom: 25px;
-}
-
-.content-section p {
-    color: #dfd4c0;
-
-    font-size: 1.05rem;
 
     max-width: 850px;
 
-    margin: 0 auto 20px;
+    margin: auto;
 
-    text-align: center;
+    font-size: 25px;
+
+    line-height: 1.6;
+
+    font-style: italic;
+
+    color: #d9c69e;
 }
 
-/* =========================
-   IMAGENS DAS SEÇÕES
-========================= */
-
-.section-image {
-    width: 100%;
-
-    max-width: 900px;
-
-    height: 430px;
-
-    margin: 35px auto;
+.quote span {
 
     display: block;
 
-    object-fit: cover;
+    margin-top: 18px;
 
-    border-radius: 8px;
+    color: #a9966b;
 
-    border: 1px solid rgba(211,174,91,0.4);
-
-    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+    font-size: 15px;
 }
 
-/* =========================
-   CAPÍTULOS
-========================= */
-
-.chapters {
-    max-width: 1000px;
-
-    margin: 30px auto 0;
-
-    display: grid;
-
-    gap: 15px;
-}
-
-.chapter {
-    display: block;
-
-    padding: 20px 25px;
-
-    background: rgba(255,255,255,0.035);
-
-    border: 1px solid rgba(211,174,91,0.25);
-
-    color: #eadfc9;
-
-    text-decoration: none;
-
-    transition: 0.3s;
-}
-
-.chapter:hover {
-    background: rgba(211,174,91,0.08);
-
-    border-color: rgba(211,174,91,0.55);
-
-    transform: translateX(5px);
-}
-
-.chapter strong {
-    color: #d9b76b;
-}
-
-/* =========================
-   APOIE
-========================= */
-
-.support-box {
-    max-width: 800px;
-
-    margin: 30px auto 0;
-
-    padding: 40px;
-
-    text-align: center;
-
-    border: 1px solid rgba(211,174,91,0.35);
-
-    background: rgba(255,255,255,0.035);
-
-    border-radius: 8px;
-}
-
-.support-box p {
-    margin-bottom: 15px;
-}
 
 /* =========================
    RODAPÉ
 ========================= */
 
 footer {
+
+    padding: 35px;
+
     text-align: center;
 
-    padding: 50px 20px;
+    background: #071b14;
 
-    background: #091c14;
+    border-top:
+        1px solid #705e31;
 
-    border-top: 1px solid rgba(211,174,91,0.25);
+    color: #9d927c;
 
-    color: #a99b82;
-
-    font-size: 0.9rem;
+    font-size: 14px;
 }
+
 
 /* =========================
    RESPONSIVO
 ========================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 
     .doors {
-        grid-template-columns: repeat(3, 1fr);
+
+        grid-template-columns:
+            repeat(3, 1fr);
     }
 
 }
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
+
+    .navbar {
+
+        padding: 0 18px;
+    }
+
+    .logo {
+
+        font-size: 17px;
+    }
 
     .menu {
+
         display: none;
     }
 
+    .hero-box {
+
+        padding: 40px 25px;
+    }
+
+    .hero h1 {
+
+        font-size: 45px;
+    }
+
+    .hero p {
+
+        font-size: 17px;
+    }
+
     .doors {
-        grid-template-columns: 1fr 1fr;
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
     .door {
-        height: 350px;
-    }
 
-    .hero-content {
-        padding: 25px 20px;
+        height: 450px;
     }
-
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
 
     .doors {
+
         grid-template-columns: 1fr;
     }
 
     .door {
-        max-width: 300px;
+
+        max-width: 330px;
+
         width: 100%;
+
         margin: auto;
     }
-
 }
 
 </style>
+
 </head>
 
 <body>
+
 
 <!-- =========================
      CABEÇALHO
@@ -529,37 +534,37 @@ footer {
 
 <header>
 
-    <nav class="navbar">
+<nav class="navbar">
 
-        <a href="#inicio" class="logo">
-            ENTRE A FLORESTA E AS ÁGUAS
-        </a>
+<a href="#" class="logo">
+ENTRE A FLORESTA E AS ÁGUAS
+</a>
 
-        <ul class="menu">
+<ul class="menu">
 
-            <li>
-                <a href="#historia">História</a>
-            </li>
+<li>
+<a href="#portinhas">História</a>
+</li>
 
-            <li>
-                <a href="#personagens">Personagens</a>
-            </li>
+<li>
+<a href="#portinhas">Personagens</a>
+</li>
 
-            <li>
-                <a href="#mundo">O Mundo</a>
-            </li>
+<li>
+<a href="#portinhas">O Mundo</a>
+</li>
 
-            <li>
-                <a href="#leia">Leia</a>
-            </li>
+<li>
+<a href="#portinhas">Leia</a>
+</li>
 
-            <li>
-                <a href="#apoie">Apoie</a>
-            </li>
+<li>
+<a href="#portinhas">Apoie</a>
+</li>
 
-        </ul>
+</ul>
 
-    </nav>
+</nav>
 
 </header>
 
@@ -568,21 +573,22 @@ footer {
      HERO
 ========================= -->
 
-<section class="hero" id="inicio">
+<section class="hero">
 
-    <div class="hero-content">
+<div class="hero-box">
 
-        <h1>
-            Entre a Floresta e as Águas
-        </h1>
+<h1>
+Entre a Floresta e as Águas
+</h1>
 
-        <p>
-            Onde antigos reinos guardam segredos,
-            espíritos caminham entre os homens
-            e o destino nasce entre a terra, a floresta e o mar.
-        </p>
+<p>
+Onde antigos reinos guardam segredos,
+espíritos caminham entre os homens
+e o destino nasce entre a terra,
+a floresta e o mar.
+</p>
 
-    </div>
+</div>
 
 </section>
 
@@ -593,112 +599,140 @@ footer {
 
 <section class="intro">
 
-    <h2>
-        Um mundo além do conhecido
-    </h2>
-
-    <p>
-        Há lugares que existem além das fronteiras que conhecemos.
-        Reinos escondidos, espíritos ancestrais e histórias que
-        atravessaram gerações aguardam aqueles que ousam entrar.
-    </p>
+<p>
+Há lugares que existem além das fronteiras que conhecemos.
+Reinos escondidos, espíritos ancestrais e histórias
+que atravessaram gerações aguardam aqueles que ousam entrar.
+</p>
 
 </section>
 
 
 <!-- =========================
-     PORTINHAS
+     AS CINCO PORTINHAS
 ========================= -->
 
-<section class="doors-section">
+<section class="doors-section" id="portinhas">
 
-    <div class="doors">
-
-        <a href="#historia" class="door door-history">
-
-            <div class="door-image"></div>
-
-            <div class="door-content">
-
-                <h3>A História</h3>
-
-                <span>
-                    Conheça o início da jornada
-                </span>
-
-            </div>
-
-        </a>
+<div class="doors">
 
 
-        <a href="#personagens" class="door door-characters">
+<!-- HISTÓRIA -->
 
-            <div class="door-image"></div>
+<a href="#" class="door">
 
-            <div class="door-content">
+<div class="door-image history-image"></div>
 
-                <h3>Personagens</h3>
+<div class="door-overlay"></div>
 
-                <span>
-                    Aqueles que habitam este mundo
-                </span>
+<div class="door-content">
 
-            </div>
+<h2>
+A História
+</h2>
 
-        </a>
+<p>
+Conheça o início da jornada
+</p>
 
+</div>
 
-        <a href="#mundo" class="door door-world">
-
-            <div class="door-image"></div>
-
-            <div class="door-content">
-
-                <h3>O Mundo</h3>
-
-                <span>
-                    Reinos, povos e territórios
-                </span>
-
-            </div>
-
-        </a>
+</a>
 
 
-        <a href="#leia" class="door door-read">
+<!-- PERSONAGENS -->
 
-            <div class="door-image"></div>
+<a href="#" class="door">
 
-            <div class="door-content">
+<div class="door-image characters-image"></div>
 
-                <h3>Leia</h3>
+<div class="door-overlay"></div>
 
-                <span>
-                    Entre nas páginas da história
-                </span>
+<div class="door-content">
 
-            </div>
+<h2>
+Personagens
+</h2>
 
-        </a>
+<p>
+Aqueles que habitam este mundo
+</p>
+
+</div>
+
+</a>
 
 
-        <a href="#apoie" class="door door-support">
+<!-- MUNDO -->
 
-            <div class="door-image"></div>
+<a href="#" class="door">
 
-            <div class="door-content">
+<div class="door-image world-image"></div>
 
-                <h3>Apoie</h3>
+<div class="door-overlay"></div>
 
-                <span>
-                    Faça parte deste universo
-                </span>
+<div class="door-content">
 
-            </div>
+<h2>
+O Mundo
+</h2>
 
-        </a>
+<p>
+Reinos, povos e territórios
+</p>
 
-    </div>
+</div>
+
+</a>
+
+
+<!-- LEIA -->
+
+<a href="#" class="door">
+
+<div class="door-image read-image"></div>
+
+<div class="door-overlay"></div>
+
+<div class="door-content">
+
+<h2>
+Leia
+</h2>
+
+<p>
+Entre nas páginas da história
+</p>
+
+</div>
+
+</a>
+
+
+<!-- APOIE -->
+
+<a href="#" class="door">
+
+<div class="door-image support-image"></div>
+
+<div class="door-overlay"></div>
+
+<div class="door-content">
+
+<h2>
+Apoie
+</h2>
+
+<p>
+Faça parte deste universo
+</p>
+
+</div>
+
+</a>
+
+
+</div>
 
 </section>
 
@@ -709,169 +743,15 @@ footer {
 
 <section class="quote">
 
-    <p>
-        “Algumas histórias começam muito antes
-        de seus protagonistas descobrirem que fazem parte delas.”
-    </p>
+<p>
+“Algumas histórias começam muito antes
+de seus protagonistas descobrirem
+que fazem parte delas.”
+</p>
 
-    <span>
-        — Entre a Floresta e as Águas
-    </span>
-
-</section>
-
-
-<!-- =========================
-     HISTÓRIA
-========================= -->
-
-<section class="content-section" id="historia">
-
-    <h2>
-        A História
-    </h2>
-
-    <p>
-        Uma antiga história começa a despertar entre os reinos.
-        Segredos esquecidos, alianças improváveis e forças
-        ancestrais conduzem os personagens por caminhos que
-        jamais imaginaram percorrer.
-    </p>
-
-    <img
-        src="./historia.png"
-        alt="A floresta encantada"
-        class="section-image"
-    >
-
-</section>
-
-
-<!-- =========================
-     PERSONAGENS
-========================= -->
-
-<section class="content-section" id="personagens">
-
-    <h2>
-        Personagens
-    </h2>
-
-    <p>
-        Príncipes, espíritos e habitantes dos diferentes reinos
-        possuem suas próprias histórias, desejos e segredos.
-    </p>
-
-    <img
-        src="./personagens.png"
-        alt="Espírito ancestral da água"
-        class="section-image"
-    >
-
-</section>
-
-
-<!-- =========================
-     O MUNDO
-========================= -->
-
-<section class="content-section" id="mundo">
-
-    <h2>
-        O Mundo
-    </h2>
-
-    <p>
-        Um mundo dividido entre diferentes forças da natureza,
-        onde florestas antigas, montanhas, águas e territórios
-        misteriosos formam um universo vivo.
-    </p>
-
-    <img
-        src="./mundo.png"
-        alt="Panorama dos reinos"
-        class="section-image"
-    >
-
-</section>
-
-
-<!-- =========================
-     LEIA
-========================= -->
-
-<section class="content-section" id="leia">
-
-    <h2>
-        Leia
-    </h2>
-
-    <p>
-        Abra as páginas e descubra os capítulos de
-        Entre a Floresta e as Águas.
-    </p>
-
-    <img
-        src="./leia.png"
-        alt="Livros e manuscritos antigos"
-        class="section-image"
-    >
-
-    <div class="chapters">
-
-        <a href="#" class="chapter">
-            <strong>Capítulo 1</strong>
-            — O começo da história
-        </a>
-
-        <a href="#" class="chapter">
-            <strong>Capítulo 2</strong>
-            — Entre mundos
-        </a>
-
-        <a href="#" class="chapter">
-            <strong>Capítulo 3</strong>
-            — Segredos antigos
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     APOIE
-========================= -->
-
-<section class="content-section" id="apoie">
-
-    <h2>
-        Apoie
-    </h2>
-
-    <p>
-        Este universo está sendo construído com carinho,
-        entre histórias, personagens e muitas ideias.
-    </p>
-
-    <img
-        src="./apoie.png"
-        alt="Natureza e escrita"
-        class="section-image"
-    >
-
-    <div class="support-box">
-
-        <p>
-            Se você gosta deste universo e quer acompanhar
-            seu desenvolvimento, fique por perto.
-        </p>
-
-        <p>
-            Novas histórias ainda estão por vir.
-        </p>
-
-    </div>
+<span>
+— Entre a Floresta e as Águas
+</span>
 
 </section>
 
@@ -882,14 +762,11 @@ footer {
 
 <footer>
 
-    Entre a Floresta e as Águas
-
-    <br><br>
-
-    Um universo de Kamile Gomes de Souza
+Entre a Floresta e as Águas
 
 </footer>
 
 
 </body>
+
 </html>
