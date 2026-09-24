@@ -3,17 +3,521 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Entre a Floresta e as Águas</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #0d211c;
+      color: #f4ead2;
+    }
+
+    /* MENU */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      background: rgba(8, 25, 21, 0.92);
+      border-bottom: 1px solid rgba(221, 195, 133, 0.35);
+      backdrop-filter: blur(8px);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+    }
+
+    .logo {
+      font-size: 27px;
+      color: #e2c77c;
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .menu a {
+      color: #f5ead2;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      color: #e2c77c;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      padding: 150px 25px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(circle at 75% 30%, rgba(180, 205, 213, 0.5), transparent 25%),
+        radial-gradient(circle at 20% 30%, rgba(48, 100, 74, 0.9), transparent 35%),
+        linear-gradient(135deg, #102b22, #234f42 45%, #719da1 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(4, 18, 15, 0.15),
+          rgba(4, 18, 15, 0.65)
+        );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .small-title {
+      letter-spacing: 5px;
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #e3d3a8;
+    }
+
+    .hero h1 {
+      font-size: clamp(52px, 9vw, 105px);
+      line-height: 0.9;
+      font-weight: normal;
+      color: #f7edda;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    .ornament {
+      margin: 25px 0;
+      color: #e2c77c;
+      font-size: 30px;
+    }
+
+    .subtitle {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .description {
+      max-width: 650px;
+      margin: auto;
+      font-size: 17px;
+      line-height: 1.8;
+      color: #f1e7d0;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 17px 38px;
+      border-radius: 40px;
+      background: #152c24;
+      border: 1px solid #d8bd75;
+      color: #f5ead2;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #d8bd75;
+      color: #162a23;
+      transform: translateY(-3px);
+    }
+
+    /* INTRO */
+
+    .intro {
+      background: #eee4ce;
+      color: #25362e;
+      text-align: center;
+      padding: 80px 25px;
+    }
+
+    .intro p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 27px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* CARDS */
+
+    .explore {
+      padding: 85px 25px;
+      background:
+        linear-gradient(rgba(8, 28, 23, 0.9), rgba(8, 28, 23, 0.96)),
+        radial-gradient(circle at center, #46796b, #071712);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      font-weight: normal;
+      color: #ead49b;
+    }
+
+    .section-title p {
+      margin-top: 10px;
+      color: #cfc4a7;
+    }
+
+    .cards {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 330px;
+      border: 1px solid rgba(220, 190, 116, 0.55);
+      border-radius: 110px 110px 25px 25px;
+      padding: 45px 20px 25px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(32, 67, 55, 0.25),
+          rgba(5, 20, 16, 0.95)
+        );
+      transition: 0.35s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: #e2c77c;
+    }
+
+    .card-icon {
+      font-size: 43px;
+      margin-bottom: auto;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      font-weight: normal;
+      color: #ead49b;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #d9d0ba;
+    }
+
+    /* CAPÍTULOS */
+
+    .chapters {
+      padding: 85px 25px;
+      background: #eee4ce;
+      color: #26372f;
+    }
+
+    .chapter-grid {
+      max-width: 1050px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .chapter {
+      background: #f7f0df;
+      border: 1px solid #cbb98d;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(30, 50, 40, 0.12);
+    }
+
+    .chapter span {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #7c745f;
+    }
+
+    .chapter h3 {
+      margin: 12px 0;
+      font-size: 23px;
+      font-weight: normal;
+    }
+
+    .chapter p {
+      line-height: 1.6;
+      color: #5e5a4e;
+    }
+
+    /* FINAL */
+
+    footer {
+      min-height: 300px;
+      padding: 90px 25px;
+      text-align: center;
+      background: #071510;
+      color: #d9c99d;
+    }
+
+    footer h2 {
+      font-size: 28px;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    footer p {
+      color: #aaa48f;
+    }
+
+    .footer-ornament {
+      margin-top: 35px;
+      font-size: 25px;
+    }
+
+    /* CELULAR */
+
+    @media (max-width: 900px) {
+      .menu {
+        gap: 12px;
+      }
+
+      .menu a {
+        font-size: 11px;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .chapter-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        padding: 15px;
+        gap: 12px;
+      }
+
+      .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 50px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .intro p {
+        font-size: 21px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>Entre a Floresta e as Águas</h1>
+  <header>
+    <nav>
+      <a href="#" class="logo">✦</a>
 
-  <p>Um mundo além do nosso.</p>
+      <ul class="menu">
+        <li><a href="#inicio">INÍCIO</a></li>
+        <li><a href="#historia">A HISTÓRIA</a></li>
+        <li><a href="#personagens">PERSONAGENS</a></li>
+        <li><a href="#mundo">O MUNDO</a></li>
+        <li><a href="#leia">LEIA</a></li>
+        <li><a href="#apoie">APOIE</a></li>
+        <li><a href="#diario">DIÁRIO</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <p>Onde a natureza guarda segredos,
-  os reinos se entrelaçam e o destino segue outros caminhos.</p>
+
+  <main>
+
+    <section class="hero" id="inicio">
+
+      <div class="hero-content">
+
+        <div class="small-title">— ENTRE A —</div>
+
+        <h1>FLORESTA<br>e as<br>ÁGUAS</h1>
+
+        <div class="ornament">❧</div>
+
+        <p class="subtitle">UM MUNDO ALÉM DO NOSSO.</p>
+
+        <p class="description">
+          Onde a natureza guarda segredos,
+          os reinos se entrelaçam e o destino
+          segue outros caminhos.
+        </p>
+
+        <a href="#historia" class="button">
+          ENTRAR NO UNIVERSO →
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <section class="intro" id="historia">
+
+      <p>
+        “Existem lugares que não aparecem em nenhum mapa.
+        Existem histórias que esperam alguém encontrá-las.”
+      </p>
+
+    </section>
+
+
+    <section class="explore" id="personagens">
+
+      <div class="section-title">
+        <h2>Explore este universo</h2>
+        <p>Há muito mais esperando para ser descoberto.</p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="card-icon">🌿</div>
+          <h3>A HISTÓRIA</h3>
+          <p>Descubra o início dessa jornada.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">✧</div>
+          <h3>PERSONAGENS</h3>
+          <p>Conheça aqueles que dão vida a este mundo.</p>
+        </div>
+
+        <div class="card" id="mundo">
+          <div class="card-icon">◈</div>
+          <h3>O MUNDO</h3>
+          <p>Explore os reinos, suas lendas e criaturas.</p>
+        </div>
+
+        <div class="card" id="leia">
+          <div class="card-icon">📖</div>
+          <h3>LEIA</h3>
+          <p>Acompanhe os capítulos e mergulhe na história.</p>
+        </div>
+
+        <div class="card" id="apoie">
+          <div class="card-icon">🌱</div>
+          <h3>APOIE</h3>
+          <p>Ajude este universo a crescer.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="chapters">
+
+      <div class="section-title">
+        <h2>Capítulos recentes</h2>
+        <p>Uma história que começa a ser revelada.</p>
+      </div>
+
+      <div class="chapter-grid">
+
+        <article class="chapter">
+          <span>CAPÍTULO 01</span>
+          <h3>Raízes que Chamam</h3>
+          <p>
+            O início de uma jornada entre mundos
+            que jamais deveriam se encontrar.
+          </p>
+        </article>
+
+        <article class="chapter">
+          <span>CAPÍTULO 02</span>
+          <h3>Entre Dois Mundos</h3>
+          <p>
+            Quando os caminhos da floresta
+            encontram as águas.
+          </p>
+        </article>
+
+        <article class="chapter">
+          <span>CAPÍTULO 03</span>
+          <h3>O Caminho das Águas</h3>
+          <p>
+            Alguns caminhos escondem segredos
+            que não podem permanecer ocultos.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer id="diario">
+
+    <h2>A natureza sempre encontra um caminho.</h2>
+
+    <p>
+      Entre a Floresta e as Águas
+    </p>
+
+    <div class="footer-ornament">❧</div>
+
+  </footer>
 
 </body>
 </html>
