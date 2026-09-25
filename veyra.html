@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Veyra | Entre a Floresta e as Águas</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    color: #24382d;
+
+    background-image: url("fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+
+/* Camada suave sobre o fundo */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: rgba(18, 38, 28, 0.28);
+
+    z-index: -1;
+}
+
+/* Página */
+.page {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 55px 20px 70px;
+
+    display: flex;
+    justify-content: center;
+}
+
+/* Caixa principal */
+.content {
+    width: 100%;
+    max-width: 1000px;
+
+    background: rgba(248, 244, 232, 0.89);
+
+    border: 1px solid rgba(184, 149, 70, 0.55);
+    border-radius: 22px;
+
+    padding: 45px 65px;
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(3px);
+}
+
+/* Moldura da Veyra */
+.character-portrait {
+    width: 300px;
+    height: 300px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character-portrait img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.25));
+}
+
+/* Título pequeno */
+.eyebrow {
+    text-align: center;
+
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    color: #8b6b2f;
+
+    margin-bottom: 10px;
+}
+
+/* Nome */
+h1 {
+    text-align: center;
+
+    font-size: 44px;
+    font-weight: normal;
+
+    color: #244b35;
+
+    margin: 0 0 8px;
+}
+
+/* Título */
+.subtitle {
+    text-align: center;
+
+    font-size: 21px;
+    font-style: italic;
+
+    color: #8b6b2f;
+
+    margin-bottom: 25px;
+}
+
+/* Identificação */
+.identity {
+    max-width: 650px;
+
+    margin: 0 auto 40px;
+
+    padding: 20px 25px;
+
+    border-top: 1px solid rgba(184, 149, 70, 0.45);
+    border-bottom: 1px solid rgba(184, 149, 70, 0.45);
+
+    text-align: center;
+
+    line-height: 1.9;
+
+    color: #405344;
+}
+
+.identity strong {
+    color: #31563e;
+}
+
+/* Linha decorativa */
+.divider {
+    width: 90px;
+    height: 2px;
+
+    background: #b8964b;
+
+    margin: 0 auto 45px;
+}
+
+/* Títulos */
+h2 {
+    color: #31563e;
+
+    font-size: 28px;
+    font-weight: normal;
+
+    margin-top: 42px;
+    margin-bottom: 20px;
+
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid rgba(184, 149, 70, 0.35);
+}
+
+/* Subtítulos */
+h3 {
+    color: #8b6b2f;
+
+    font-size: 21px;
+    font-weight: normal;
+
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+
+/* Parágrafos */
+p {
+    font-size: 18px;
+
+    line-height: 1.85;
+
+    margin: 0 0 20px;
+}
+
+/* Listas */
+ul {
+    padding-left: 25px;
+
+    margin-bottom: 25px;
+}
+
+li {
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 8px;
+}
+
+/* Frase */
+.quote {
+    margin: 45px auto 15px;
+
+    max-width: 700px;
+
+    text-align: center;
+
+    font-size: 22px;
+
+    font-style: italic;
+
+    color: #31563e;
+}
+
+.quote-text {
+    text-align: center;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: #526457;
+
+    max-width: 750px;
+
+    margin: 0 auto;
+}
+
+/* Botão voltar */
+.back {
+    display: block;
+
+    width: fit-content;
+
+    margin: 55px auto 0;
+
+    padding: 12px 25px;
+
+    border: 1px solid #9b7a36;
+
+    border-radius: 30px;
+
+    color: #31563e;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: 0.3s ease;
+}
+
+.back:hover {
+    background: #31563e;
+
+    color: #f8f4e8;
+}
+
+/* Celular */
+@media (max-width: 700px) {
+
+    .page {
+        padding: 25px 12px 45px;
+    }
+
+    .content {
+        padding: 30px 23px;
+
+        border-radius: 16px;
+    }
+
+    .character-portrait {
+        width: 245px;
+        height: 245px;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 19px;
+    }
+
+    li {
+        font-size: 16px;
+    }
+
+    .quote {
+        font-size: 19px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<section class="content">
+
+<!-- MOLDURA DA VEYRA -->
+
+<div class="character-portrait">
+    <img src="moldura-veyra.png" alt="Veyra">
+</div>
+
+<div class="eyebrow">
+Entre a Floresta e as Águas
+</div>
+
+<h1>VEYRA</h1>
+
+<div class="subtitle">
+Espírito da Floresta
+</div>
+
+<div class="identity">
+
+<strong>Reino:</strong> Floresta<br>
+<strong>Espécie:</strong> Espírito da Natureza<br>
+<strong>Elemento:</strong> Floresta<br>
+<strong>Forma animal:</strong> Raposa branca
+
+</div>
+
+<div class="divider"></div>
+
+
+<!-- QUEM É VEYRA -->
+
+<h2>Quem é Veyra?</h2>
+
+<p>
+Veyra é um dos últimos espíritos da Floresta e cresceu longe dos reinos e das pessoas. Sua casa sempre foi a floresta, e os animais, sua família.
+</p>
+
+<p>
+Livre, curiosa e espontânea, ela aprendeu desde cedo a sobreviver sozinha e a encontrar felicidade nas pequenas coisas: o som das árvores, os animais ao seu redor, os rios, os frutos e a tranquilidade de viver sem precisar pertencer a nenhum reino.
+</p>
+
+<p>
+Por muito tempo, isso foi suficiente.
+</p>
+
+<p>
+Até o dia em que encontrou Evander.
+</p>
+
+<p>
+O encontro entre os dois faz Veyra descobrir sentimentos que nunca havia conhecido e, pela primeira vez, perceber que talvez existissem pessoas capazes de ocupar um espaço tão importante em sua vida quanto a própria floresta.
+</p>
+
+<p>
+A partir desse momento, sua história passa a se entrelaçar com a dos reinos da Terra e da Água, levando-a para muito além do lugar que sempre chamou de lar.
+</p>
+
+
+<!-- PERSONALIDADE -->
+
+<h2>Personalidade</h2>
+
+<p>
+Veyra é <strong>livre, curiosa, espontânea e extremamente ligada à natureza</strong>.
+</p>
+
+<p>
+Ela não se preocupa com títulos, riquezas ou posição social. Para ela, o valor de alguém está naquilo que a pessoa é, e não no lugar que ocupa.
+</p>
+
+<p>
+É também muito sincera. Não costuma esconder o que pensa e não tem medo de dizer o que sente, mesmo quando ainda não compreende completamente os próprios sentimentos.
+</p>
+
+<p>
+Apesar de sua aparência delicada, Veyra possui uma grande força interior. Quando ama alguém, é capaz de se colocar em risco para proteger essa pessoa, mesmo sem pensar nas consequências.
+</p>
+
+<p>
+Sua relação com os animais é uma das partes mais importantes de quem ela é. Ela conversa com eles, cuida deles e os considera sua família.
+</p>
+
+<p>
+Veyra também possui um lado brincalhão e uma curiosidade quase infantil diante de coisas que nunca conheceu. Por ter crescido isolada, muitas situações comuns para os habitantes dos reinos são novas para ela.
+</p>
+
+<p>
+Mas sua maior característica talvez seja sua capacidade de <strong>amar sem possuir</strong>.
+</p>
+
+
+<!-- APARÊNCIA -->
+
+<h2>Aparência</h2>
+
+<p>
+Veyra possui uma beleza delicada e natural, que combina com sua ligação com a floresta.
+</p>
+
+<p>
+Seus <strong>cabelos são brancos</strong>, longos, volumosos e levemente ondulados, com bastante movimento. Seus olhos são <strong>castanhos e luminosos</strong>, contrastando com a pele clara, levemente dourada pelo contato constante com a natureza.
+</p>
+
+<p>
+Seu corpo é delicado e curvilíneo, com uma aparência suave e natural.
+</p>
+
+<p>
+Suas roupas são feitas principalmente de tecidos naturais, em tons terrosos e suaves, acompanhadas por elementos da própria floresta, como folhas, flores e pequenos detalhes naturais.
+</p>
+
+<p>
+Nada em sua aparência parece artificial. Veyra parece pertencer à floresta porque, de certa forma, pertence.
+</p>
+
+
+<!-- PODERES -->
+
+<h2>Poderes</h2>
+
+<h3>🌿 Conexão com a natureza</h3>
+
+<p>
+Veyra sente e compreende a floresta de uma maneira que nenhum humano comum conseguiria. Árvores, plantas e animais fazem parte de seu mundo.
+</p>
+
+<h3>🦊 Transformação</h3>
+
+<p>
+Veyra pode assumir a forma de uma <strong>raposa branca</strong>.
+</p>
+
+<p>
+Nessa forma, torna-se extremamente ágil e consegue se movimentar pela floresta com facilidade, passando por lugares onde sua forma humana não conseguiria chegar.
+</p>
+
+<p>
+Foi justamente nessa forma que conheceu Evander.
+</p>
+
+<h3>🐾 Comunicação com os animais</h3>
+
+<p>
+Os animais são sua companhia desde a infância. Veyra consegue compreender seus comportamentos e estabelecer com eles uma conexão muito mais profunda do que uma simples relação entre humano e animal.
+</p>
+
+<h3>🌱 Poder da Floresta</h3>
+
+<p>
+Como espírito da natureza, Veyra possui uma conexão mágica com a vida vegetal e com a própria essência da floresta.
+</p>
+
+<p>
+Ao longo da história, porém, seus poderes vão se tornar maiores e mais complexos do que ela própria imaginava.
+</p>
+
+
+<!-- SEGUNDO ELEMENTO -->
+
+<h2>Um segundo elemento</h2>
+
+<p>
+A história de Veyra não permanece ligada somente à Floresta.
+</p>
+
+<p>
+Em determinado momento, uma escolha feita por ela muda completamente o rumo de sua história e a coloca diante de consequências que jamais poderia imaginar.
+</p>
+
+<p>
+A partir daí, Veyra começa a descobrir que seu destino é muito maior do que aquilo que conhecia sobre si mesma.
+</p>
+
+
+<!-- RELAÇÕES -->
+
+<h2>Relações</h2>
+
+<h3>Evander</h3>
+
+<p>
+Foi a primeira pessoa por quem Veyra desenvolveu sentimentos verdadeiramente diferentes de tudo que já havia experimentado.
+</p>
+
+<p>
+Os dois começam como amigos e constroem uma relação muito próxima. Veyra admira Evander, confia nele e se torna uma das poucas pessoas diante de quem ele consegue simplesmente ser Evander, e não o príncipe responsável por um reino.
+</p>
+
+<p>
+Por muito tempo, ela acredita que sabe exatamente o que sente por ele.
+</p>
+
+<p>
+Mas os sentimentos de Veyra ainda estão longe de chegar ao fim de sua jornada.
+</p>
+
+<h3>Nerian</h3>
+
+<p>
+Nerian representa uma parte completamente diferente da vida de Veyra.
+</p>
+
+<p>
+A relação entre os dois nasce em circunstâncias inesperadas e passa por muitas dificuldades. Aos poucos, porém, Veyra descobre nele alguém que respeita sua liberdade, compreende sua natureza e não tenta transformá-la em algo que ela não é.
+</p>
+
+<p>
+O vínculo entre os dois se torna uma das partes mais importantes da trajetória de Veyra.
+</p>
+
+<h3>Petra</h3>
+
+<p>
+Petra se torna uma das pessoas mais próximas de Veyra no reino da Terra.
+</p>
+
+<p>
+Diferentes em muitos aspectos, as duas desenvolvem uma amizade forte, marcada por confiança, brincadeiras e cumplicidade.
+</p>
+
+<p>
+Petra é uma das poucas pessoas capazes de perceber o que Veyra tenta esconder.
+</p>
+
+
+<!-- MEDOS -->
+
+<h2>Medos</h2>
+
+<p>
+Veyra passou grande parte da vida acreditando que não precisava de ninguém.
+</p>
+
+<p>
+Mas, depois de criar vínculos com outras pessoas, descobre algo que nunca havia precisado enfrentar antes:
+</p>
+
+<p>
+<strong>o medo de perder quem ama.</strong>
+</p>
+
+<p>
+Sua maior vulnerabilidade não está na falta de poder.
+</p>
+
+<p>
+Está justamente naquilo que ela mais valoriza.
+</p>
+
+
+<!-- CURIOSIDADES -->
+
+<h2>Curiosidades</h2>
+
+<ul>
+
+<li>Veyra cresceu na floresta e não conhecia verdadeiramente a vida nos reinos.</li>
+
+<li>Durante muito tempo, os animais foram sua única família.</li>
+
+<li>Sua forma animal é uma raposa branca.</li>
+
+<li>Ela não se importa com títulos ou posição social.</li>
+
+<li>Foi Veyra quem tomou a iniciativa de acompanhar Evander quando ele decidiu retornar ao reino.</li>
+
+<li>Ela é extremamente curiosa sobre coisas que nunca experimentou.</li>
+
+<li>Mesmo sendo um espírito da natureza, Veyra desenvolve uma <strong>ligação inesperada com a Água</strong>.</li>
+
+<li>Sua jornada é marcada pela descoberta de que pertencer a alguém não significa deixar de pertencer a si mesma.</li>
+
+</ul>
+
+
+<!-- FRASE FINAL -->
+
+<div class="quote">
+“A floresta sempre foi minha casa.”
+</div>
+
+<p class="quote-text">
+Mas, ao longo de sua jornada, Veyra descobrirá que um lar também pode ser encontrado em pessoas, em escolhas e em lugares que jamais imaginou conhecer.
+</p>
+
+
+<!-- VOLTAR -->
+
+<a class="back" href="personagens.html">
+← Voltar aos personagens
+</a>
+
+</section>
+
+</main>
+
+</body>
+</html>
