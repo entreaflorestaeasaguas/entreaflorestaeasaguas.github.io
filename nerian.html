@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nerian — Entre a Floresta e as Águas</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #30452f;
+
+    background-image:
+        linear-gradient(rgba(18, 38, 28, 0.28), rgba(18, 38, 28, 0.28)),
+        url('fundo.png');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 45px;
+
+    background: rgba(248, 244, 232, 0.89);
+
+    border: 2px solid rgba(166, 132, 61, 0.75);
+    border-radius: 22px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25),
+        inset 0 0 25px rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(3px);
+}
+
+.personagem {
+    text-align: center;
+}
+
+.personagem img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.30));
+
+    margin-bottom: 15px;
+}
+
+h1 {
+    margin: 5px 0;
+    color: #365536;
+    font-size: 38px;
+    letter-spacing: 1px;
+}
+
+.subtitulo {
+    color: #9a7836;
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.informacoes {
+    margin: 25px auto 35px;
+    padding: 18px 25px;
+
+    max-width: 650px;
+
+    background: rgba(230, 225, 207, 0.60);
+
+    border-left: 4px solid #a6843d;
+    border-right: 4px solid #a6843d;
+
+    border-radius: 12px;
+
+    text-align: left;
+    line-height: 1.8;
+}
+
+h2 {
+    color: #526b43;
+    font-size: 27px;
+    margin-top: 42px;
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid rgba(166, 132, 61, 0.45);
+    padding-bottom: 7px;
+}
+
+h3 {
+    color: #7b6535;
+    font-size: 21px;
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 12px 0;
+}
+
+strong {
+    color: #405d38;
+}
+
+ul {
+    font-size: 17px;
+    line-height: 1.9;
+    padding-left: 28px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* Forma elemental */
+
+.elemental {
+    text-align: center;
+    margin: 25px 0 35px;
+}
+
+.elemental img {
+    width: 390px;
+    max-width: 85%;
+    height: auto;
+
+    object-fit: contain;
+
+    filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.30));
+
+    margin: 15px auto;
+}
+
+.elemental-legenda {
+    max-width: 700px;
+    margin: 5px auto 20px;
+
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.7;
+
+    color: #526b43;
+}
+
+/* Frase final */
+
+.frase {
+    margin-top: 45px;
+    padding: 25px;
+
+    text-align: center;
+
+    background: rgba(224, 218, 196, 0.55);
+
+    border-radius: 15px;
+
+    color: #6d572c;
+    font-size: 21px;
+}
+
+/* Botão voltar */
+
+.voltar {
+    display: block;
+    width: fit-content;
+
+    margin: 35px auto 0;
+    padding: 10px 30px;
+
+    color: #526b43;
+    background: transparent;
+
+    border: 1px solid #b28a3e;
+    border-radius: 30px;
+
+    text-decoration: none;
+    font-size: 17px;
+
+    transition: 0.3s;
+}
+
+.voltar:hover {
+    background: rgba(178, 138, 62, 0.10);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 94%;
+        padding: 25px 20px;
+        margin: 25px auto;
+    }
+
+    .personagem img {
+        width: 245px;
+        height: 245px;
+    }
+
+    .elemental img {
+        width: 300px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .subtitulo {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p,
+    ul {
+        font-size: 16px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="personagem">
+
+        <img src="moldura-nerian.png" alt="Nerian">
+
+        <h1>NERIAN</h1>
+
+        <div class="subtitulo">
+            Príncipe Regente da Água
+        </div>
+
+        <div class="informacoes">
+
+            <strong>Reino:</strong> Água<br>
+            <strong>Idade:</strong> 28 anos<br>
+            <strong>Elemento:</strong> Água<br>
+            <strong>Espécie:</strong> Espírito da Natureza
+
+        </div>
+
+    </div>
+
+
+    <h2>Quem ele é</h2>
+
+    <p>
+        Nerian é o <strong>Príncipe Regente da Água</strong> e o mais velho de seis irmãos.
+    </p>
+
+    <p>
+        Desde criança, foi preparado para assumir o governo de seu reino, mas cresceu de uma maneira mais livre do que outros herdeiros. Seus pais permitiram que ele aproveitasse a infância, explorasse seu mundo e conhecesse a vida além das responsabilidades da coroa.
+    </p>
+
+    <p>
+        Para Nerian, ser regente nunca foi visto como um peso. Ele sempre soube que esse seria seu caminho e, com o tempo, passou a acompanhar seu pai e aprender diretamente através da experiência.
+    </p>
+
+    <p>
+        Hoje, é um governante respeitado e querido por seu povo. Confia nos Regentes que administram os diferentes territórios da Água e não sente necessidade de controlar pessoalmente cada situação.
+    </p>
+
+    <p>
+        Apesar de sua serenidade, existe nele uma força que poucos seriam capazes de enfrentar.
+    </p>
+
+
+    <h2>Personalidade</h2>
+
+    <p>
+        Nerian é <strong>justo, bom, paciente, sereno e observador</strong>.
+    </p>
+
+    <p>
+        Possui uma maneira tranquila de lidar com as situações e prefere pensar antes de agir. É alguém que escuta, observa e procura compreender diferentes pontos de vista antes de tomar uma decisão.
+    </p>
+
+    <p>
+        É naturalmente próximo de seu povo e de sua família. Não busca ser popular ou chamar atenção; essa proximidade simplesmente faz parte de sua maneira de viver.
+    </p>
+
+    <p>
+        Também é alguém que valoriza profundamente a liberdade.
+    </p>
+
+    <p>
+        Nerian não tenta controlar aqueles que ama e não precisa impor sua vontade para demonstrar sua força.
+    </p>
+
+    <p>
+        Por trás de sua tranquilidade existe, porém, um homem determinado. Quando precisa assumir sua posição como regente, sua presença se torna impossível de ignorar.
+    </p>
+
+
+    <h2>Aparência</h2>
+
+    <p>
+        Nerian possui aproximadamente <strong>1,97 m de altura</strong>.
+    </p>
+
+    <p>
+        É alto, forte e atlético, mas possui um corpo mais <strong>esguio e alongado</strong>. Sua força é evidente sem que ele precise apresentar uma musculatura tão volumosa.
+    </p>
+
+    <p>
+        Sua presença é naturalmente imponente, mas sua beleza possui uma característica diferente: é <strong>elegante, harmoniosa e quase escultural</strong>, lembrando a aparência de um antigo deus.
+    </p>
+
+    <p>
+        Sua pele é clara, com um tom <strong>perolado e luminoso</strong>, possuindo um brilho natural.
+    </p>
+
+    <p>
+        Seus olhos são de um <strong>azul muito claro, quase translúcido</strong>, podendo apresentar pequenas variações conforme a iluminação.
+    </p>
+
+    <p>
+        Seus cabelos são <strong>loiros muito claros, quase brancos</strong>, longos, volumosos e levemente ondulados. Costuma usá-los soltos, parcialmente presos, com pequenas tranças ou em um rabo baixo.
+    </p>
+
+    <p>
+        Seu rosto possui traços definidos e harmoniosos, com mandíbula marcada, nariz reto e uma beleza masculina refinada.
+    </p>
+
+
+    <h2>Forma Elemental</h2>
+
+    <div class="elemental">
+
+        <img src="moldura-nerian-elemental.png" alt="Forma elemental de Nerian">
+
+    </div>
+
+    <p>
+        Como Espírito da Água, Nerian também possui uma forma elemental.
+    </p>
+
+    <p>
+        Nessa forma, seu corpo assume uma estrutura humanoide formada por <strong>água cristalina azulada</strong>, completamente diferente de sua aparência humana.
+    </p>
+
+    <p>
+        A água permanece em constante movimento, formando correntes, ondas e pequenos fluxos pelo corpo. Reflexos luminosos, brilhos, gotas e partículas podem ser vistos em meio à sua forma.
+    </p>
+
+    <p>
+        Seus contornos não permanecem completamente fixos, podendo se desfazer e se recompor como a própria água.
+    </p>
+
+    <p>
+        <strong>Sua forma elemental não é simplesmente um corpo humano transformado em água.</strong>
+    </p>
+
+    <p>
+        <strong>É uma manifestação viva do próprio elemento.</strong>
+    </p>
+
+
+    <h2>Poderes</h2>
+
+    <p>
+        Nerian possui um domínio extremamente poderoso sobre a Água.
+    </p>
+
+    <p>
+        Diferente de outros elementais, não precisa necessariamente de movimentos físicos para controlar seu elemento. Sua principal exigência é conseguir <strong>manter a mente concentrada</strong>.
+    </p>
+
+    <p>
+        É capaz de:
+    </p>
+
+    <ul>
+        <li>Controlar a água independentemente de sua origem;</li>
+        <li>Moldar e movimentar diferentes volumes de água;</li>
+        <li>Controlar rios, lagos, mares e outras fontes;</li>
+        <li>Criar formas e armas utilizando a água;</li>
+        <li>Moldar e endurecer a água, podendo transformá-la em lâminas;</li>
+        <li>Influenciar a chuva;</li>
+        <li>Utilizar a água para proteção e deslocamento;</li>
+        <li>Perceber pessoas e locais através da água;</li>
+        <li>Utilizar seu elemento para localizar alguém que já tenha visto anteriormente.</li>
+    </ul>
+
+    <p>
+        Sua conexão com a Água também permite que perceba a presença de pessoas próximas a fontes de água, embora a extensão dessa percepção dependa da quantidade de água disponível.
+    </p>
+
+    <p>
+        Suas emoções também influenciam seus poderes. Quanto mais agitado estiver, principalmente quando tomado pela raiva, mais difícil se torna manter o controle preciso sobre o elemento.
+    </p>
+
+
+    <h2>Nerian e seu reino</h2>
+
+    <p>
+        Nerian governa uma nação formada por diferentes territórios ligados pela Água.
+    </p>
+
+    <p>
+        Existem Regentes responsáveis por determinadas regiões, que enviam informações e relatórios ao príncipe.
+    </p>
+
+    <p>
+        Nerian confia em seus representantes e permite que resolvam os problemas de seus próprios territórios sempre que possível. Quando uma situação realmente exige sua presença, ele vai pessoalmente.
+    </p>
+
+    <p>
+        Sua irmã <strong>Lirian</strong> é seu principal apoio na administração do reino e uma das pessoas em quem mais confia.
+    </p>
+
+    <p>
+        Nerian gosta de governar e sente orgulho de sua posição. Para ele, ser regente não significa viver sob uma pressão constante, mas assumir uma responsabilidade que faz parte de quem ele é.
+    </p>
+
+
+    <h2>Nerian e Veyra</h2>
+
+    <p>
+        Veyra desperta em Nerian uma curiosidade que vai muito além de sua natureza como Espírito da Floresta.
+    </p>
+
+    <p>
+        Ele se encanta pela maneira como ela vive, pela sua liberdade e pela capacidade que possui de encontrar felicidade nas coisas simples.
+    </p>
+
+    <p>
+        Ao conhecê-la melhor, Nerian também descobre que existe muito mais em Veyra do que aparenta.
+    </p>
+
+    <p>
+        Ela é habilidosa, determinada e capaz de enfrentar situações que poderiam surpreendê-lo.
+    </p>
+
+    <p>
+        Uma das coisas que aprende ao lado dela é justamente <strong>não subestimá-la</strong>.
+    </p>
+
+
+    <h2>Nerian e sua família</h2>
+
+    <p>
+        Nerian é o mais velho de seis irmãos e possui uma relação próxima com todos eles.
+    </p>
+
+    <p>
+        <strong>Lirian</strong> é sua irmã mais próxima e seu principal braço direito. Quando Nerian está ausente, Lirian pode assumir suas funções e ajudar a resolver questões do reino.
+    </p>
+
+    <p>
+        <strong>Derya</strong> é responsável pelo comando dos exércitos da Água. Possui uma personalidade mais rígida e séria, mas mantém uma boa relação com os irmãos.
+    </p>
+
+    <p>
+        <strong>Lir</strong> ainda não possui responsabilidades diretas sobre o reino e demonstra grande desejo de conhecer outras nações.
+    </p>
+
+    <p>
+        As gêmeas <strong>Nereida e Nerida</strong> são as caçulas da família. Cheias de energia e curiosidade, possuem grande admiração pelo irmão mais velho.
+    </p>
+
+    <p>
+        Apesar das diferenças entre eles, Nerian é muito próximo de todos.
+    </p>
+
+
+    <h2>O que ele teme</h2>
+
+    <p>
+        Nerian não costuma ser dominado pelo medo.
+    </p>
+
+    <p>
+        Seu maior desafio está relacionado à própria natureza de seus poderes: <strong>perder o controle sobre suas emoções e, consequentemente, sobre a Água</strong>.
+    </p>
+
+    <p>
+        Por isso, procura manter a mente equilibrada e compreender aquilo que sente antes de agir.
+    </p>
+
+
+    <h2>Curiosidades</h2>
+
+    <ul>
+        <li>É o mais velho de seis irmãos.</li>
+        <li>Sempre soube que seria o Regente da Água.</li>
+        <li>Nunca enxergou a regência como um fardo.</li>
+        <li>Cresceu tendo mais liberdade durante a infância e adolescência.</li>
+        <li>Aprendeu sobre o governo acompanhando seu pai.</li>
+        <li>É muito próximo dos irmãos.</li>
+        <li>Confia bastante nos Regentes de seu reino.</li>
+        <li>Possui grande habilidade em combate, embora prefira utilizar seus poderes à distância.</li>
+        <li>Sua força física é acompanhada por uma poderosa conexão elemental.</li>
+        <li>Quanto mais perturbada estiver sua mente, mais difícil é controlar perfeitamente a Água.</li>
+        <li>Consegue utilizar a água para perceber e localizar pessoas que já tenha visto.</li>
+        <li>Sua forma elemental é completamente diferente de sua forma humana.</li>
+        <li>É conhecido por sua serenidade, mas sua presença muda quando assume plenamente sua posição como soberano.</li>
+    </ul>
+
+
+    <h2>Três palavras</h2>
+
+    <p style="text-align:center; font-weight:bold; color:#526b43;">
+        SERENO • OBSERVADOR • PODEROSO
+    </p>
+
+
+    <div class="frase">
+    “A calma não significa ausência de força. Às vezes, é justamente onde ela começa.”
+</div>
+
+
+    <a href="personagens.html" class="voltar">
+        ← Voltar aos personagens
+    </a>
+
+</div>
+
+</body>
+</html>
