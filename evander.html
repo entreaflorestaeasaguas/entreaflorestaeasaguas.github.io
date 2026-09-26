@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Evander | Entre a Floresta e as Águas</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    color: #24382d;
+
+    background-image: url("fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: rgba(18, 38, 28, 0.28);
+
+    z-index: -1;
+}
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 55px 20px 70px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: 100%;
+    max-width: 1000px;
+
+    background: rgba(248, 244, 232, 0.89);
+
+    border: 1px solid rgba(184, 149, 70, 0.55);
+    border-radius: 22px;
+
+    padding: 45px 65px;
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(3px);
+}
+
+/* Moldura do Evander */
+
+.character-portrait {
+    width: 300px;
+    height: 300px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character-portrait img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.25));
+}
+
+/* Título pequeno */
+
+.eyebrow {
+    text-align: center;
+
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    color: #8b6b2f;
+
+    margin-bottom: 10px;
+}
+
+/* Nome */
+
+h1 {
+    text-align: center;
+
+    font-size: 44px;
+    font-weight: normal;
+
+    color: #244b35;
+
+    margin: 0 0 8px;
+}
+
+/* Subtítulo */
+
+.subtitle {
+    text-align: center;
+
+    font-size: 21px;
+    font-style: italic;
+
+    color: #8b6b2f;
+
+    margin-bottom: 25px;
+}
+
+/* Identificação */
+
+.identity {
+    max-width: 650px;
+
+    margin: 0 auto 40px;
+
+    padding: 20px 25px;
+
+    border-top: 1px solid rgba(184, 149, 70, 0.45);
+    border-bottom: 1px solid rgba(184, 149, 70, 0.45);
+
+    text-align: center;
+
+    line-height: 1.9;
+
+    color: #405344;
+}
+
+.identity strong {
+    color: #31563e;
+}
+
+/* Linha decorativa */
+
+.divider {
+    width: 90px;
+    height: 2px;
+
+    background: #b8964b;
+
+    margin: 0 auto 45px;
+}
+
+/* Títulos */
+
+h2 {
+    color: #31563e;
+
+    font-size: 28px;
+    font-weight: normal;
+
+    margin-top: 42px;
+    margin-bottom: 20px;
+
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid rgba(184, 149, 70, 0.35);
+}
+
+/* Subtítulos */
+
+h3 {
+    color: #8b6b2f;
+
+    font-size: 21px;
+    font-weight: normal;
+
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+
+/* Parágrafos */
+
+p {
+    font-size: 18px;
+
+    line-height: 1.85;
+
+    margin: 0 0 20px;
+}
+
+/* Listas */
+
+ul {
+    padding-left: 25px;
+
+    margin-bottom: 25px;
+}
+
+li {
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 8px;
+}
+
+/* Três palavras */
+
+.keywords {
+    text-align: center;
+
+    margin: 25px auto 35px;
+
+    font-size: 17px;
+
+    letter-spacing: 2px;
+
+    color: #8b6b2f;
+
+    font-weight: bold;
+}
+
+/* Frase */
+
+.quote {
+    margin: 45px auto 15px;
+
+    max-width: 700px;
+
+    text-align: center;
+
+    font-size: 22px;
+
+    font-style: italic;
+
+    color: #31563e;
+}
+
+/* Botão voltar */
+
+.back {
+    display: block;
+
+    width: fit-content;
+
+    margin: 55px auto 0;
+
+    padding: 12px 25px;
+
+    border: 1px solid #9b7a36;
+
+    border-radius: 30px;
+
+    color: #31563e;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: 0.3s ease;
+}
+
+.back:hover {
+    background: #31563e;
+
+    color: #f8f4e8;
+}
+
+/* Celular */
+
+@media (max-width: 700px) {
+
+    .page {
+        padding: 25px 12px 45px;
+    }
+
+    .content {
+        padding: 30px 23px;
+
+        border-radius: 16px;
+    }
+
+    .character-portrait {
+        width: 245px;
+        height: 245px;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 19px;
+    }
+
+    li {
+        font-size: 16px;
+    }
+
+    .quote {
+        font-size: 19px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<section class="content">
+
+<!-- MOLDURA DO EVANDER -->
+
+<div class="character-portrait">
+    <img src="moldura-evander.png" alt="Evander">
+</div>
+
+<div class="eyebrow">
+Entre a Floresta e as Águas
+</div>
+
+<h1>EVANDER</h1>
+
+<div class="subtitle">
+Príncipe Regente da Terra
+</div>
+
+<div class="identity">
+
+<strong>Reino:</strong> Terra<br>
+<strong>Idade:</strong> 26 anos<br>
+<strong>Elemento:</strong> Terra<br>
+<strong>Posição:</strong> Príncipe Regente da Terra
+
+</div>
+
+<div class="divider"></div>
+
+
+<!-- QUEM É EVANDER -->
+
+<h2>Quem é Evander?</h2>
+
+<p>
+Evander é o atual Príncipe Regente da Terra. Desde criança foi preparado para assumir as responsabilidades de seu reino e aprendeu que governar significa muito mais do que possuir poder: significa cuidar das pessoas que confiam nele.
+</p>
+
+<p>
+Bom, justo, responsável e carismático, é um governante muito querido e respeitado por seus súditos. Apesar de possuir pessoas que levam informações até ele, Evander prefere conhecer os problemas de seu reino pessoalmente. Quando necessário, visita outras cidades e comunidades para compreender as situações de perto e encontrar soluções.
+</p>
+
+<p>
+Como regente, é sério, atento e firme. Mas longe das responsabilidades do cargo, especialmente quando está com seus amigos, existe um outro lado de Evander: mais descontraído, espontâneo e capaz de simplesmente aproveitar o momento sem precisar carregar o peso de ser príncipe.
+</p>
+
+
+<!-- PERSONALIDADE -->
+
+<h2>Personalidade</h2>
+
+<p>
+Evander é alguém em quem as pessoas podem confiar.
+</p>
+
+<p>
+É <strong>justo, bom, sociável, carismático e responsável</strong>, mas também possui uma personalidade mais reservada quando se trata de sentimentos.
+</p>
+
+<p>
+Ele costuma ouvir diferentes opiniões antes de tomar uma decisão. Conversa com seus conselheiros e pessoas de confiança, considera diferentes pontos de vista e, depois de analisar a situação, assume para si a responsabilidade pela decisão final.
+</p>
+
+<p>
+Apesar de gostar da posição que ocupa e sentir orgulho de seu reino, nem sempre o peso da responsabilidade é fácil. Evander pode se sentir cansado, frustrado e sobrecarregado, mas nunca usa isso como motivo para abandonar suas obrigações.
+</p>
+
+<p>
+Ele sabe que nasceu em uma posição privilegiada e reconhece o valor de tudo o que possui. Ainda assim, existem momentos em que gostaria de deixar de ser o príncipe por algumas horas e simplesmente ser <strong>Evander</strong>.
+</p>
+
+
+<!-- PODERES -->
+
+<h2>Poderes</h2>
+
+<p>
+Como membro da família real da Terra, Evander possui uma conexão excepcionalmente poderosa com seu elemento.
+</p>
+
+<p>
+Ele consegue <strong>manipular e moldar a terra e a pedra</strong>, utilizando o próprio terreno ao seu redor de diferentes maneiras.
+</p>
+
+<p>
+Com concentração suficiente, pode:
+</p>
+
+<ul>
+
+<li>erguer barreiras e muralhas;</li>
+
+<li>alterar e moldar o terreno;</li>
+
+<li>criar estruturas de terra e pedra;</li>
+
+<li>enrijecer a terra ao redor de seus adversários;</li>
+
+<li>criar formas de contenção;</li>
+
+<li>utilizar o próprio ambiente como parte de seus combates.</li>
+
+</ul>
+
+<p>
+Sua força física e resistência também são manifestações de seu elemento. O corpo de Evander possui uma resistência extraordinária, comparável à de uma rocha extremamente resistente.
+</p>
+
+<p>
+Os poderes da família real são muito superiores aos das pessoas comuns do elemento Terra, cujas manifestações costumam ser muito mais sutis.
+</p>
+
+
+<!-- EVANDER E SEU REINO -->
+
+<h2>Evander e seu reino</h2>
+
+<p>
+Evander é muito querido pelos habitantes da Terra, mas sua relação com eles não é de intimidade.
+</p>
+
+<p>
+Ele aparece em eventos importantes, visita diferentes regiões do reino e procura estar presente quando necessário. Não gosta de governar apenas através de relatórios e informações recebidas à distância.
+</p>
+
+<p>
+Quando descobre que existe um problema em alguma parte de seu território, sua primeira reação costuma ser descobrir pessoalmente o que está acontecendo.
+</p>
+
+<p>
+Para Evander, governar significa <strong>estar presente quando seu povo precisa dele</strong>.
+</p>
+
+
+<!-- EVANDER E VEYRA -->
+
+<h2>Evander e Veyra</h2>
+
+<p>
+Veyra desperta a curiosidade de Evander desde o primeiro encontro.
+</p>
+
+<p>
+Ele cresceu ouvindo histórias sobre os Espíritos da Floresta, mas nunca havia conhecido um pessoalmente. Descobrir que aquela jovem é um deles já seria suficiente para despertar seu interesse.
+</p>
+
+<p>
+Mas existe algo que o aproxima ainda mais dela:
+</p>
+
+<p>
+<strong>Veyra não o trata como príncipe.</strong>
+</p>
+
+<p>
+Para ela, ele é simplesmente Evander.
+</p>
+
+<p>
+Ela conversa com ele naturalmente, dá sua opinião, não se intimida com seu título e não muda sua maneira de agir por estar diante do príncipe regente.
+</p>
+
+<p>
+Evander aprecia isso mais do que imagina.
+</p>
+
+<p>
+Ele reconhece sua beleza, mas o que realmente desperta seu interesse é a pessoa que existe por trás dela: sua liberdade, sua espontaneidade, sua maneira diferente de enxergar o mundo e a forma como consegue fazê-lo esquecer, por alguns momentos, das responsabilidades que carrega.
+</p>
+
+<p>
+No início, Evander acredita que o que sente por Veyra é apenas amizade.
+</p>
+
+<p>
+Ele demora a perceber que existe algo além disso.
+</p>
+
+
+<!-- EVANDER E PETRA -->
+
+<h2>Evander e Petra</h2>
+
+<p>
+Petra faz parte da vida de Evander desde a infância.
+</p>
+
+<p>
+Filha de um general do exército, cresceu próxima ao príncipe e posteriormente assumiu o cargo de seu pai. Essa proximidade fez com que os dois desenvolvessem uma amizade profunda e duradoura.
+</p>
+
+<p>
+Durante a juventude, Evander chegou a ter uma queda por ela. Petra, porém, sempre foi apaixonada por Silas, seu amigo e vizinho de infância.
+</p>
+
+<p>
+Quando percebe que os sentimentos dela nunca foram direcionados a ele, Evander aceita a situação sem grandes dramas. O antigo interesse desaparece e dá lugar à amizade que os dois sempre tiveram.
+</p>
+
+<p>
+Hoje, Petra é uma das pessoas em quem ele mais confia — embora ela ainda goste de lembrá-lo daquela antiga paixão sempre que encontra uma oportunidade.
+</p>
+
+
+<!-- FAMÍLIA -->
+
+<h2>Família</h2>
+
+<h3>Cléia e Boden</h3>
+
+<p>
+Pais de Evander.
+</p>
+
+<p>
+Seu casamento começou como um casamento arranjado, mas, com o tempo, os dois aprenderam a se amar e construíram uma família juntos.
+</p>
+
+<p>
+Atualmente, Cléia e Boden estão menos envolvidos com a vida pública e passam a maior parte do tempo <strong>viajando entre as nações</strong>.
+</p>
+
+<p>
+Apesar de amar os pais, Evander nunca teve com eles uma relação especialmente próxima ou afetuosa.
+</p>
+
+<h3>Marian</h3>
+
+<p>
+Irmã mais velha de Evander.
+</p>
+
+<p>
+Desde criança, Marian deixou claro que não desejava assumir o governo da Terra. Por isso, Evander foi preparado para ocupar a posição de sucessor.
+</p>
+
+<p>
+Hoje, Marian é casada e vive longe da cidade principal do reino.
+</p>
+
+
+<!-- MEDOS -->
+
+<h2>O que Evander mais teme?</h2>
+
+<p>
+Mais do que perder seu título ou seu poder, Evander teme <strong>falhar com a Nação da Terra</strong>.
+</p>
+
+<p>
+Existe também um medo profundamente pessoal: decepcionar seu pai.
+</p>
+
+<p>
+Toda a sua vida foi construída em torno da responsabilidade de um dia governar, e por isso a ideia de não estar à altura das expectativas daqueles que confiam nele é algo que o afeta profundamente.
+</p>
+
+
+<!-- CURIOSIDADES -->
+
+<h2>Curiosidades</h2>
+
+<ul>
+
+<li>Evander assumiu o governo da Terra aos 20 anos, como determina a tradição sucessória do reino.</li>
+
+<li>Apesar de governar, ainda é chamado de <strong>Príncipe Regente</strong>.</li>
+
+<li>Sua força física é uma manifestação direta de seu elemento.</li>
+
+<li>Ele consegue utilizar o próprio terreno como uma extensão de seus poderes.</li>
+
+<li>Quando está com os amigos, seu comportamento muda bastante e o lado descontraído aparece com mais facilidade.</li>
+
+<li>Não gosta de tomar decisões importantes sem ouvir outras pessoas.</li>
+
+<li>Apesar de possuir autoridade, não é autoritário.</li>
+
+<li>Prefere resolver pessoalmente problemas que considera importantes.</li>
+
+<li>Petra é uma das poucas pessoas que conhece seu lado mais descontraído desde a infância.</li>
+
+<li>Veyra é uma das primeiras pessoas fora de seu círculo familiar e político a fazê-lo esquecer completamente, ainda que por alguns momentos, o peso de seu título.</li>
+
+</ul>
+
+
+<!-- TRÊS PALAVRAS -->
+
+<h2>Três palavras para definir Evander</h2>
+
+<div class="keywords">
+CONFIÁVEL • PRESENTE • ADMIRÁVEL
+</div>
+
+
+<!-- FRASE -->
+
+<div class="quote">
+“Ser príncipe é uma responsabilidade. Ser Evander é quem eu sou.”
+</div>
+
+
+<!-- VOLTAR -->
+
+<a class="back" href="personagens.html">
+← Voltar aos personagens
+</a>
+
+</section>
+
+</main>
+
+</body>
+</html>
